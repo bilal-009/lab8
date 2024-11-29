@@ -37,15 +37,16 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    hori_list_buttons()
-                    ver_list_buttons()
-                        //MenuGrid()
-                    }
+                    //hori_list_buttons()
+                    //ver_list_buttons()
+                    //MenuGrid()
+                    TravelGrid()
+                }
             }
         }
     }
 }
-
+/*
 @Composable
 fun hori_list_buttons(){
     Row (modifier = Modifier.fillMaxWidth(),
@@ -55,7 +56,8 @@ fun hori_list_buttons(){
         }
     }
 }
-
+*/
+/*
 @Composable
 fun ver_list_buttons(){
     Column (modifier=Modifier.fillMaxHeight(),
@@ -83,13 +85,14 @@ val Catagories = listOf<String>(
     "Dessert",
     "Mains"
 )
-
+*/
 
 @Preview(showBackground = true)
 @Composable
 fun MenuCatagoryPreview() {
     AndroidMenuTheme {
-        hori_list_buttons()
-        ver_list_buttons()
+        //hori_list_buttons()
+        //ver_list_buttons()
+        MenuGrid()
     }
 }

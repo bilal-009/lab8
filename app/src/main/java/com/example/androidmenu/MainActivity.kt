@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                     //hori_list_buttons()
                     //ver_list_buttons()
                     //MenuGrid()
-                    TravelGrid()
+                    MenuGrid()
                 }
             }
         }

@@ -34,8 +34,8 @@ fun MenuGrid(){
     Column(modifier=Modifier.verticalScroll(rememberScrollState())) {
         repeat(10){
             Row (modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ){
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ){
                 GridCell()
             }
         }
@@ -43,16 +43,68 @@ fun MenuGrid(){
 }
 
 @Composable
-fun GridCell(){
-    Card(elevation = CardDefaults.cardElevation(defaultElevation = 8.dp), modifier = Modifier.padding(8.dp))
+fun GridCell() {
+    Card(
+        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+        modifier = Modifier.padding(8.dp)
+    )
     {
-        Box(modifier = Modifier
-            .fillMaxWidth()
-            .padding(1.dp)
-            .background(Color(0XFFFFFFFF))
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(1.dp)
+                .background(Color(0XFFFFFFFF))
         )
         {
-            // Start Making your card over here
+            Card(
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp), // Card elevation to give depth
+                modifier = Modifier.padding(8.dp) // Padding around the card
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth() // Make the row take full width of the card
+                        .background(Color(0xFFFFFFFF)) // Background color for the row
+                        .padding(8.dp), // Padding inside the row
+                    verticalAlignment = Alignment.CenterVertically // Vertically align items at the center
+                ) {
+                    // Column containing the text content
+                    Column(
+                        modifier = Modifier
+                            .weight(1f) // This makes the column take up all remaining space in the row
+                            .padding(end = 8.dp) // Padding at the end of the column
+                    ) {
+                        // Item name with larger font and bold weight
+                        Text(
+                            text = "Greek Salad",
+                            fontSize = 20.sp, // Font size for the title
+                            fontWeight = FontWeight.Bold, // Bold font for emphasis
+                            modifier = Modifier.padding(bottom = 4.dp) // Space below the title
+                        )
+                        // Item description with smaller font and gray color
+                        Text(
+                            text = "A traditional Greek salad consists of sliced cucumbers, tomatoes, green bell pepper, red onion, olives, and feta cheese.",
+                            fontSize = 14.sp, // Smaller font for description
+                            color = Color.Gray, // Gray color for the description text
+                            modifier = Modifier.padding(bottom = 8.dp) // Space below the description
+                        )
+                        // Item price with bold font and black color
+                        Text(
+                            text = "$12.5", // Price of the dish
+                            fontSize = 16.sp, // Font size for the price
+                            fontWeight = FontWeight.Bold, // Bold font for price
+                            color = Color.Black // Black color for the price text
+                        )
+                    }
+                    // Image of the dish with fixed size and rounded corners
+                    Image(
+                        painter = painterResource(id = R.drawable.greeksalad), // Image source for Greek salad
+                        contentDescription = "Greek Salad Image", // Accessibility description for the image
+                        modifier = Modifier
+                            .size(80.dp) // Set size of the image
+                            .clip(RoundedCornerShape(8.dp)) // Apply rounded corners to the image
+                    )
+                }
+            }
         }
     }
 }
@@ -62,4 +114,3 @@ fun GridCell(){
 fun GridCellPreview(){
     MenuGrid()
 }
-
